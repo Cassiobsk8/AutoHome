@@ -1,4 +1,4 @@
-// Código V2.1.0 por Cássio K. Ferreira 
+// Código V2.0.0 por Cássio K. Ferreira 
 
 #include <SPI.h>
 #include <Ethernet.h>
