@@ -28,6 +28,7 @@ const int psw3 = 5;  // Nomeando as Portas de saida para rele, pino switch x
 const int psw4 = 3;  //
 const int psw5 = 2;  //
 const int ros = 44;  // switch para desligar todas as lampadas ao resetar
+const int buzzer = 48; // buzzer de indicação
 
 //const int pqc = 47;  // Pino indicador conectado do quadro
 
@@ -52,7 +53,6 @@ void setup(){
   rtc.setSQWRate(SQW_RATE_1);
   rtc.enableSQW(true);
   
-  Serial.begin(9600);
   delay(10000);
   Ethernet.begin(mac, ip);
   servidorArduino.begin();
@@ -63,6 +63,7 @@ void setup(){
   pinMode(psw3, OUTPUT);  //sw3
   pinMode(psw4, OUTPUT);  //sw4
   pinMode(psw5, OUTPUT);  //sw5
+  pinMode(buzzer, OUTPUT);
   //pinMode(pqc, OUTPUT);
   pinMode(ros, INPUT);  // desligar Lx no reset
   pinMode(pL1, INPUT);  //L1
@@ -142,25 +143,12 @@ void loop() {
           comando[index] = '\0';
         }
 
-      //Serial.println(comando);
-       //Serial.print("Hora : ");
- 	   //Serial.print(rtc.getTimeStr());
-       //Serial.print(" ");
-	   //Serial.print("Data : ");
-       //Serial.print(rtc.getDateStr());
-       //Serial.print(" ");
-       //Serial.println(rtc.getDOWStr());
-       //Serial.print("Temperatura: ");
-       //Serial.print(temperature);
-       //Serial.println(" °C"); 
 
       if (strstr(comando, "Conectado")) {
         clienteApp.println("Esta Conectado");
-        Serial.println("Controle conectado");
       }
 
       if (strstr(comando, "temp1")) {
-        Serial.println("Recebido temp1");
         temperature = (float(analogRead(LM35))*5/(1023))/0.01;
         clienteApp.println(temperature);
       }
@@ -181,7 +169,6 @@ void loop() {
       // Começo do sw1
       //---------------
       if (strstr(comando, "sw1")) {
-        Serial.println("Recebido sw1");
             if (estadosw1 == LOW){
               digitalWrite(psw1, HIGH);}              
             if (estadosw1 == HIGH){
@@ -202,7 +189,6 @@ void loop() {
       // Começo do sw2
       //---------------
       if (strstr(comando, "sw2")) {
-        Serial.println("Recebido sw2");
             if (estadosw2 == LOW){
               digitalWrite(psw2, HIGH);}              
             if (estadosw2 == HIGH){
@@ -223,7 +209,6 @@ void loop() {
       // Começo do sw3
       //---------------
       if (strstr(comando, "sw3")) {
-        Serial.println("Recebido sw3");
             if (estadosw3 == LOW){
               digitalWrite(psw3, HIGH);}              
             if (estadosw3 == HIGH){
@@ -244,7 +229,6 @@ void loop() {
       // Começo do sw4
       //---------------
       if (strstr(comando, "sw4")) {
-        Serial.println("Recebido sw4");
             if (estadosw4 == LOW){
               digitalWrite(psw4, HIGH);}              
             if (estadosw4 == HIGH){
@@ -265,7 +249,6 @@ void loop() {
       // Começo do sw5 Patio
       //---------------------
       if (strstr(comando, "sw5")) {
-        Serial.println("Recebido sw5");
         if (estadosw5 == LOW){
             digitalWrite(psw5, HIGH);}
         if (estadosw5 == HIGH){
@@ -289,8 +272,13 @@ void loop() {
 
       //else {
         //clienteApp.println("unknown_command");
-        //Serial.println("Comando desconhecido");
       //}
     }
   }
+}
+
+void beep(unsigned char beeps){
+    for (int i=0; i<beeps; i++) {
+    digitalWrite(buzzer, HIGH);
+    delay(20);
 }
