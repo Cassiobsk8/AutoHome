@@ -63,7 +63,7 @@ void setup(){
   pinMode(psw3, OUTPUT);  //sw3
   pinMode(psw4, OUTPUT);  //sw4
   pinMode(psw5, OUTPUT);  //sw5
-  pinMode(buzzer, OUTPUT);
+  pinMode(buzzer, OUTPUT); // buzzer com cristal
   //pinMode(pqc, OUTPUT);
   pinMode(ros, INPUT);  // desligar Lx no reset
   pinMode(pL1, INPUT);  //L1
@@ -257,7 +257,7 @@ void loop() {
       //if(sensorlumino < lumino) {
       //  if(sensorpir == HIGH){
       //      digitalWrite(psw5, HIGH);
-      //      delay(15000);}
+      //   }
       //}
       if (strstr(comando, "L5")) {
         if (digitalRead(pL5) == HIGH) {   
@@ -282,6 +282,7 @@ void loop() {
         digitalWrite(buzzer, HIGH);
         delay(200);
         digitalWrite(buzzer, LOW);
+        delay(200);
         }
       delay(2000);
     }
