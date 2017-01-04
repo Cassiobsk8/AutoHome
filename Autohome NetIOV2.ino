@@ -27,6 +27,7 @@ const int psw2 = 6;  //
 const int psw3 = 5;  // Nomeando as Portas de saida para rele, pino switch x
 const int psw4 = 3;  //
 const int psw5 = 2;  //
+const int ros = 44;  // switch para desligar todas as lampadas ao resetar
 
 //const int pqc = 47;  // Pino indicador conectado do quadro
 
@@ -63,6 +64,7 @@ void setup(){
   pinMode(psw4, OUTPUT);  //sw4
   pinMode(psw5, OUTPUT);  //sw5
   //pinMode(pqc, OUTPUT);
+  pinMode(ros, INPUT);  // desligar Lx no reset
   pinMode(pL1, INPUT);  //L1
   pinMode(pL2, INPUT);  //L2
   pinMode(pL3, INPUT);  //L3
@@ -73,7 +75,9 @@ void setup(){
  // pinMode(LDR, INPUT);  //Sendor Luminosidade LDR
 
   //digitalWrite(pqc, LOW);  // Indicador de conectado do quadro
-
+ 
+    if (digitalRead(ros) == HIGH) {   //
+                                      //
   if (digitalRead(pL1) == HIGH) {     //
     if (digitalRead(psw1) == HIGH){   //
       digitalWrite(psw1, LOW);}       //
@@ -104,10 +108,12 @@ void setup(){
     else{                             //
       digitalWrite(psw5, HIGH);}      //
   }                                   //
+ }                                    //
+    
 }
 
-void loop()
-{
+void loop() {
+    
   estadosw1 = digitalRead(psw1);  //
   estadosw2 = digitalRead(psw2);  //
   estadosw3 = digitalRead(psw3);  //  Para identificar o estado do rele e trocar conforme swx
