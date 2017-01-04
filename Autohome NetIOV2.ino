@@ -144,6 +144,8 @@ void loop() {
         }
 
 
+//==================================================== INICIO ===========================================
+        
       if (strstr(comando, "Conectado")) {
         clienteApp.println("Esta Conectado");
       }
@@ -273,16 +275,19 @@ void loop() {
       //else {
         //clienteApp.println("unknown_command");
       //}
+        
+//=============================================== FIM ===============================================
+        
     }
   }
 }
 
-    void beep(unsigned char beeps){
-        for (int i=0; i<beeps; i++) {
+void beep(unsigned char beeps){
+    for (int i=0; i<beeps; i++) {
         digitalWrite(buzzer, HIGH);
         delay(200);
         digitalWrite(buzzer, LOW);
         delay(200);
         }
-      delay(2000);
-    }
+    delay(2000);
+}
