@@ -1,19 +1,19 @@
-// Código V2.1.0 por Cássio K. Ferreira 
+// Código V2.1.0 por Cássio K. Ferreira
 
 #include <SPI.h>
 #include <Ethernet.h>
 #include <DS1307.h>
 
 DS1307 rtc(A4, A5); //Pinos do modulo de tempo
- 
+
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 byte ip[] = { 192, 168, 1, 15 };
- 
+
 #define BUFFER 10
 EthernetServer servidorArduino(3200); //Porta
 
 //#define lumino 400  //Valor de luminosidade máximo que o sensor de presença vai funcionar
- 
+
 int estadosw1;
 int estadosw2;
 int estadosw3;
@@ -37,7 +37,7 @@ const int pL2 = 32;  //
 const int pL3 = 30;  // Nomeando as entradas Lx
 const int pL4 = 28;  //
 const int pL5 = 26;  //
- 
+
 //const int PIR = 22;  // Sensor de Presença
 //const int LDR = A0;  // Sensor de luminosidade
 const int LM35 = A1; // Sensor de temperatura
@@ -52,7 +52,7 @@ void setup(){
 
   rtc.setSQWRate(SQW_RATE_1);
   rtc.enableSQW(true);
-  
+
   delay(10000);
   Ethernet.begin(mac, ip);
   servidorArduino.begin();
@@ -71,12 +71,12 @@ void setup(){
   pinMode(pL3, INPUT);  //L3
   pinMode(pL4, INPUT);  //L4
   pinMode(pL5, INPUT);  //L5
-  pinMode(LM35, INPUT); //Sensor temp   
+  pinMode(LM35, INPUT); //Sensor temp
   //pinMode(PIR, INPUT);  //Sensor Presença PIR
   //pinMode(LDR, INPUT);  //Sendor Luminosidade LDR
 
   //digitalWrite(pqc, LOW);  // Indicador de conectado do quadro
- 
+
 if (digitalRead(ros) == HIGH) {       //
                                       //
   if (digitalRead(pL1) == HIGH) {     //
@@ -110,23 +110,23 @@ if (digitalRead(ros) == HIGH) {       //
       digitalWrite(psw5, HIGH);}      //
   }                                   //
  }                                    //
-  beep(2);  
+  beep(2);
 }
 
 void loop() {
-    
+
   estadosw1 = digitalRead(psw1);  //
   estadosw2 = digitalRead(psw2);  //
   estadosw3 = digitalRead(psw3);  //  Para identificar o estado do rele e trocar conforme swx
   estadosw4 = digitalRead(psw4);  //
   estadosw5 = digitalRead(psw5);  //
-  
+
   //int sensorpir = digitalRead(PIR);    // Variaveis
   //int sensorlumino = analogRead(LDR);  //
 
   int index = 0;
   char comando[BUFFER];
-  
+
   EthernetClient clienteApp = servidorArduino.available();
   if (clienteApp) {
     if (clienteApp.connected()) {
@@ -136,7 +136,7 @@ void loop() {
           if (caracter != '\n') {
             comando[index] = caracter;
             index++;
-            if (index >= BUFFER) 
+            if (index >= BUFFER)
               index = BUFFER -1;
             continue;
           }
@@ -144,7 +144,7 @@ void loop() {
         }
 
 //==================================================== INICIO ===========================================
-        
+
       if (strstr(comando, "Conectado")) {
         clienteApp.println("Esta Conectado");
       }
@@ -171,13 +171,13 @@ void loop() {
       //---------------
       if (strstr(comando, "sw1")) {
             if (estadosw1 == LOW){
-              digitalWrite(psw1, HIGH);}              
+              digitalWrite(psw1, HIGH);}
             if (estadosw1 == HIGH){
               digitalWrite(psw1, LOW);}
       }
       if (strstr(comando, "L1")) {
-        if (digitalRead(pL1) == HIGH) {   
-          clienteApp.println("L1on");} 
+        if (digitalRead(pL1) == HIGH) {
+          clienteApp.println("L1on");}
         else {
           clienteApp.println("L1off");
         }
@@ -191,13 +191,13 @@ void loop() {
       //---------------
       if (strstr(comando, "sw2")) {
             if (estadosw2 == LOW){
-              digitalWrite(psw2, HIGH);}              
+              digitalWrite(psw2, HIGH);}
             if (estadosw2 == HIGH){
               digitalWrite(psw2, LOW);}
       }
       if (strstr(comando, "L2")) {
-        if (digitalRead(pL2) == HIGH) {   
-          clienteApp.println("L2on");} 
+        if (digitalRead(pL2) == HIGH) {
+          clienteApp.println("L2on");}
         else {
           clienteApp.println("L2off");
         }
@@ -211,13 +211,13 @@ void loop() {
       //---------------
       if (strstr(comando, "sw3")) {
             if (estadosw3 == LOW){
-              digitalWrite(psw3, HIGH);}              
+              digitalWrite(psw3, HIGH);}
             if (estadosw3 == HIGH){
               digitalWrite(psw3, LOW);}
       }
       if (strstr(comando, "L3")) {
-        if (digitalRead(pL3) == HIGH) {   
-          clienteApp.println("L3on");} 
+        if (digitalRead(pL3) == HIGH) {
+          clienteApp.println("L3on");}
         else {
           clienteApp.println("L3off");
         }
@@ -231,13 +231,13 @@ void loop() {
       //---------------
       if (strstr(comando, "sw4")) {
             if (estadosw4 == LOW){
-              digitalWrite(psw4, HIGH);}              
+              digitalWrite(psw4, HIGH);}
             if (estadosw4 == HIGH){
               digitalWrite(psw4, LOW);}
       }
       if (strstr(comando, "L4")) {
-        if (digitalRead(pL4) == HIGH) {   
-          clienteApp.println("L4on");} 
+        if (digitalRead(pL4) == HIGH) {
+          clienteApp.println("L4on");}
         else {
           clienteApp.println("L4off");
         }
@@ -261,8 +261,8 @@ void loop() {
       //   }
       //}
       if (strstr(comando, "L5")) {
-        if (digitalRead(pL5) == HIGH) {   
-          clienteApp.println("L5on");} 
+        if (digitalRead(pL5) == HIGH) {
+          clienteApp.println("L5on");}
         else {
           clienteApp.println("L5off");
         }
@@ -274,9 +274,9 @@ void loop() {
       //else {
         //clienteApp.println("unknown_command");
       //}
-        
+
 //=============================================== FIM ===============================================
-        
+
     }
   }
 }
