@@ -110,7 +110,7 @@ void setup(){
       digitalWrite(psw5, HIGH);}      //
   }                                   //
  }                                    //
-    
+  beep(2);  
 }
 
 void loop() {
@@ -277,8 +277,11 @@ void loop() {
   }
 }
 
-void beep(unsigned char beeps){
-    for (int i=0; i<beeps; i++) {
-    digitalWrite(buzzer, HIGH);
-    delay(20);
-}
+    void beep(unsigned char beeps){
+        for (int i=0; i<beeps; i++) {
+        digitalWrite(buzzer, HIGH);
+        delay(200);
+        digitalWrite(buzzer, LOW);
+        }
+      delay(2000);
+    }
