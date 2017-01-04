@@ -39,7 +39,7 @@ const int pL4 = 28;  //
 const int pL5 = 26;  //
  
 //const int PIR = 22;  // Sensor de Presença
-// const int LDR = A0;  // Sensor de luminosidade
+//const int LDR = A0;  // Sensor de luminosidade
 const int LM35 = A1; // Sensor de temperatura
 
 void setup(){
@@ -73,11 +73,11 @@ void setup(){
   pinMode(pL5, INPUT);  //L5
   pinMode(LM35, INPUT); //Sensor temp   
   //pinMode(PIR, INPUT);  //Sensor Presença PIR
- // pinMode(LDR, INPUT);  //Sendor Luminosidade LDR
+  //pinMode(LDR, INPUT);  //Sendor Luminosidade LDR
 
   //digitalWrite(pqc, LOW);  // Indicador de conectado do quadro
  
-    if (digitalRead(ros) == HIGH) {   //
+if (digitalRead(ros) == HIGH) {       //
                                       //
   if (digitalRead(pL1) == HIGH) {     //
     if (digitalRead(psw1) == HIGH){   //
@@ -90,7 +90,7 @@ void setup(){
       digitalWrite(psw2, LOW);}       //
     else{                             //
       digitalWrite(psw2, HIGH);}      //
-  }                                   //   Segurança para não deichar acesa
+  }                                   //   Segurança para não deixar acesa
   if (digitalRead(pL3) == HIGH) {     // a luz quando acabar a energia ou o arduino
     if (digitalRead(psw3) == HIGH){   // resetar
       digitalWrite(psw3, LOW);}       //
@@ -122,7 +122,7 @@ void loop() {
   estadosw5 = digitalRead(psw5);  //
   
   //int sensorpir = digitalRead(PIR);    // Variaveis
- // int sensorlumino = analogRead(LDR);  //
+  //int sensorlumino = analogRead(LDR);  //
 
   int index = 0;
   char comando[BUFFER];
@@ -142,7 +142,6 @@ void loop() {
           }
           comando[index] = '\0';
         }
-
 
 //==================================================== INICIO ===========================================
         
