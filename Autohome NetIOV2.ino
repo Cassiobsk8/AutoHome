@@ -24,7 +24,7 @@ float temperature;
 
 const int psw1 = 7;  //
 const int psw2 = 6;  //
-const int psw3 = 5;  // Nomeando as Portas swx
+const int psw3 = 5;  // Nomeando as Portas de saida para rele, pino switch x
 const int psw4 = 3;  //
 const int psw5 = 2;  //
 
