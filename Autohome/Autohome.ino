@@ -53,6 +53,8 @@ void setup(){
   rtc.setSQWRate(SQW_RATE_1);
   rtc.enableSQW(true);
 
+  Serial.begin(9600);
+    Serial.println("Iniciando...");
   delay(10000);
   Ethernet.begin(mac, ip);
   servidorArduino.begin();
@@ -78,7 +80,7 @@ void setup(){
   //digitalWrite(pqc, LOW);  // Indicador de conectado do quadro
 
 if (digitalRead(ros) == HIGH) {       //
-                                      //
+   Serial.println("Desligar ao resetar = ON");                                   //
   if (digitalRead(pL1) == HIGH) {     //
     if (digitalRead(psw1) == HIGH){   //
       digitalWrite(psw1, LOW);}       //
@@ -109,7 +111,10 @@ if (digitalRead(ros) == HIGH) {       //
     else{                             //
       digitalWrite(psw5, HIGH);}      //
   }                                   //
- }                                    //
+ }
+    else {
+        Serial.println("Desligar ao resetar = OFF");
+    }//
   beep(2);
 }
 
@@ -146,23 +151,28 @@ void loop() {
 //==================================================== INICIO ===========================================
 
       if (strstr(comando, "Conectado")) {
+          Serial.println("Recebido comando = Conectado");
         clienteApp.println("Esta Conectado");
       }
 
       if (strstr(comando, "temp1")) {
+          Serial.println("Recebido comando = temp1");
         temperature = (float(analogRead(LM35))*5/(1023))/0.01;
         clienteApp.println(temperature);
       }
 
       if (strstr(comando, "time")) {
+          Serial.println("Recebido comando = time");
       	clienteApp.println(rtc.getTimeStr());
       }
 
       if (strstr(comando, "date")) {
+          Serial.println("Recebido comando = date");
       	clienteApp.println(rtc.getDateStr());
       }
 
       if (strstr(comando, "week")) {
+          Serial.println("Recebido comando = week");
       	clienteApp.println(rtc.getDOWStr());
       }
 
@@ -170,12 +180,14 @@ void loop() {
       // Começo do sw1
       //---------------
       if (strstr(comando, "sw1")) {
+          Serial.println("Recebido comando = sw1");
             if (estadosw1 == LOW){
               digitalWrite(psw1, HIGH);}
             if (estadosw1 == HIGH){
               digitalWrite(psw1, LOW);}
       }
       if (strstr(comando, "L1")) {
+          Serial.println("Recebido comando = L1");
         if (digitalRead(pL1) == HIGH) {
           clienteApp.println("L1on");}
         else {
@@ -190,12 +202,14 @@ void loop() {
       // Começo do sw2
       //---------------
       if (strstr(comando, "sw2")) {
+          Serial.println("Recebido comando = sw2");
             if (estadosw2 == LOW){
               digitalWrite(psw2, HIGH);}
             if (estadosw2 == HIGH){
               digitalWrite(psw2, LOW);}
       }
       if (strstr(comando, "L2")) {
+          Serial.println("Recebido comando = L2");
         if (digitalRead(pL2) == HIGH) {
           clienteApp.println("L2on");}
         else {
@@ -210,12 +224,14 @@ void loop() {
       // Começo do sw3
       //---------------
       if (strstr(comando, "sw3")) {
+          Serial.println("Recebido comando = sw3");
             if (estadosw3 == LOW){
               digitalWrite(psw3, HIGH);}
             if (estadosw3 == HIGH){
               digitalWrite(psw3, LOW);}
       }
       if (strstr(comando, "L3")) {
+          Serial.println("Recebido comando = L3");
         if (digitalRead(pL3) == HIGH) {
           clienteApp.println("L3on");}
         else {
@@ -230,12 +246,14 @@ void loop() {
       // Começo do sw4
       //---------------
       if (strstr(comando, "sw4")) {
+          Serial.println("Recebido comando = sw4");
             if (estadosw4 == LOW){
               digitalWrite(psw4, HIGH);}
             if (estadosw4 == HIGH){
               digitalWrite(psw4, LOW);}
       }
       if (strstr(comando, "L4")) {
+          Serial.println("Recebido comando = L4");
         if (digitalRead(pL4) == HIGH) {
           clienteApp.println("L4on");}
         else {
@@ -250,6 +268,7 @@ void loop() {
       // Começo do sw5 Patio
       //---------------------
       if (strstr(comando, "sw5")) {
+          Serial.println("Recebido comando = sw5");
         if (estadosw5 == LOW){
             digitalWrite(psw5, HIGH);}
         if (estadosw5 == HIGH){
@@ -261,6 +280,7 @@ void loop() {
       //   }
       //}
       if (strstr(comando, "L5")) {
+          Serial.println("Recebido comando = L5");
         if (digitalRead(pL5) == HIGH) {
           clienteApp.println("L5on");}
         else {
@@ -271,9 +291,10 @@ void loop() {
       // Fim do sw5
       //--------------
 
-      //else {
+      else {
+          Serial.println("comando desconhecido");
         //clienteApp.println("unknown_command");
-      //}
+      }
 
 //=============================================== FIM ===============================================
 
@@ -282,11 +303,13 @@ void loop() {
 }
 
 void beep(unsigned char beeps){
+    Serial.println("void beep");
     for (int i=0; i<beeps; i++) {
+        Serial.println(i);
         digitalWrite(buzzer, HIGH);
         delay(200);
         digitalWrite(buzzer, LOW);
         delay(200);
         }
-    delay(2000);
+    //delay(2000); //arrumar uma maneira de dar um delay sem interromper o uso do arduino
 }
