@@ -251,7 +251,6 @@ i {
     border: 2px solid white;
     border-radius: 25px;
 }
-<style>
   .GaugeMeter {
     Position:        Relative;
     Text-Align:      Center;
@@ -289,4 +288,3 @@ i {
     Font-Weight:     300;
     Opacity:         .8;
   }
-</style>
