@@ -1,0 +1,41 @@
+<head>
+  <meta charset="utf-8">
+  <title>Controle</title>
+  <link href='https://fonts.googleapis.com/css?family=Bowlby One' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="estilo.css"/>
+  <script type="text/javascript" src="script/soundc.js"></script>
+</head>
+<body>
+  <div id="container">
+      <div id="menu">
+
+        <p><a href="page1.html" target="targetframe" onclick="soundclick()">PAINEL <i class="right"></i></a></p>
+        <div class="floating-box"></div>
+        <p><a href="comm.html" target="targetframe" onclick="soundclick()">COMANDOS</a></p>
+        <div class="floating-box"></div>
+        <p><a href="status.html" target="targetframe" onclick="soundclick()">STATUS</a></p>
+        <div class="floating-box"></div>
+        <p><a href="player.html" target="targetframe" onclick="soundclick()">MULTIMÍDIA</a></p>
+        <div class="floating-box"></div>
+        <p><a href="cam.html" target="targetframe" onclick="soundclick()">CAMERAS</a></p>
+        <div class="floating-box"></div>
+        <p><a href="config.html" target="targetframe" onclick="soundclick()">CONFIG.</a></p>
+        <div class="floating-box"></div>
+
+      </div>
+      <div id="browser">
+          <iframe src="page1.html" 
+          name="targetframe" 
+          id="targetframe" 
+          allowTransparency="true" 
+          scrolling="no" 
+          allowfullscreen="true"  
+          width="1280" 
+          height="720"
+          style="border:none;transform:scale(0.77);transform-origin: top left;">
+          </iframe>
+      </div>
+  </div>
+  
+  </script>
+</body>

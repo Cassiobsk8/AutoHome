@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Bowlby One' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="comm.css" />
+
+	<script src="gauge/jquery-2.1.4.min.js"></script>
+	<script src="gauge/jquery.AshAlom.gaugeMeter-2.0.0.min.js"></script>
+	<script type="text/javascript" src="script/soundc.js"></script>
+	<script>
+		$(document).ready(function () {
+			$(".GaugeMeter").gaugeMeter();
+		});
+
+	</script>
+
+
+</head>
+
+<body>
+	<div id="container">
+
+
+		<button class="button buttont" onclick="soundclick()">VOICE COMMAND ON</button>
+
+
+		<div id="esq">
+			<div id="esqtop">
+				<div class="floating-box"></div>
+				<h1>
+					LAMPADAS
+				</h1>
+				<div class="floating-box"></div>
+			</div>
+			<div id="esqmid">
+				<button class="button" onclick="soundclick()">PATIO</button>
+				<i class="right"></i>
+				<h2>
+					LIGADA
+				</h2>
+				<button class="button" onclick="soundclick()">COZINHA</button>
+				<i class="right"></i>
+				<h2>
+					LIGADA
+				</h2>
+
+
+				<button class="button" onclick="soundclick()">SALA</button>
+				<i class="right"></i>
+				<h3>
+					DESLIGADA
+				</h3>
+				<button class="button disabled" onclick="soundclick()">ESCADA</button>
+				<i class="right"></i>
+				<h3>
+					DESLIGADA
+				</h3>
+			</div>
+			<div id="esqbot">
+				<button class="button disabled" onclick="soundclick()">ESCRITÓRIO</button>
+				<i class="right"></i>
+				<h2>
+					LIGADA
+				</h2>
+				<button class="button disabled" onclick="soundclick()">QUARTO</button>
+				<i class="right"></i>
+				<h3>
+					DESLIGADA
+				</h3>
+			</div>
+		</div>
+		<div id="dir">
+			<div id="dirtop">
+				<div class="floating-box2"></div>
+				<h1>
+					TEMPERATURA
+				</h1>
+				<div class="floating-box3"></div>
+				<h1>
+					LUMINSIDADE
+				</h1>
+				<div class="floating-box3"></div>
+				<h1>
+					PRESENÇA
+				</h1>
+				<div class="floating-box2"></div>
+				<p></p>
+				<div id="gauge1">
+					<div class="GaugeMeter" id="GaugeMeter_1" data-percent="25" data-stripe="12" data-append="°C" data-animate_gauge_colors="1"
+					 data-theme="Green-Red" data-label="TEMPERATURA" data-label_color="white" data-size="200" data-width="10">
+					</div>
+				</div>
+				<div id="gauge2">
+					<div class="GaugeMeter" id="GaugeMeter_1" data-percent="100" data-stripe="12" data-append="%" data-color="#04FA15" data-label="LUMINOSIDADE"
+					 data-label_color="white" data-size="200" data-width="10">
+					</div>
+				</div>
+				<div id="gauge3">
+					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="#04FA15"
+					 data-text="P" data-label="PRESENÇA" data-label_color="white" data-size="200" data-width="0">
+					</div>
+				</div>
+			</div>
+			<div id="dirmid">
+				<div class="floating-box4"></div>
+				<h1>
+					SOON
+				</h1>
+				<div class="floating-box4"></div>
+				<p></p>
+				<div id="gauge4">
+					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="#04FA15"
+					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
+					</div>
+					<button class="button buttong" onclick="soundclick()"></button>
+				</div>
+				<div id="gauge4">
+					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="#04FA15"
+					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
+					</div>
+					<button class="button buttong" onclick="soundclick()"></button>
+				</div>
+				<div id="gauge4">
+					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="#04FA15"
+					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
+					</div>
+					<button class="button buttong" onclick="soundclick()"></button>
+				</div>
+				<div id="gauge4">
+					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="#04FA15"
+					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
+					</div>
+					<button class="button buttong" onclick="soundclick()"></button>
+				</div>
+			</div>
+			<div id="dirbot">
+
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

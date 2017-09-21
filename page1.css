@@ -1,0 +1,13 @@
+body {
+    background-image: url("img/sl1.jpg");
+    background-color: #141414;
+    font-family: 'Bowlby One';
+    font-size: 70px;
+    color: white;
+    text-align:center;
+    margin-top: 13%;
+}
+h1 {
+	font-size: 90px;
+	margin-bottom: 0px;
+}
