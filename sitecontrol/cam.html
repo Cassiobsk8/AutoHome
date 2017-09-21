@@ -1,80 +1,52 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <html>
+
 <head>
-<title>Page Title</title>
+	<title>Page Title</title>
 	<link href='https://fonts.googleapis.com/css?family=Bowlby One' rel='stylesheet'>
-	<link rel="stylesheet" type="text/css" href="cam.css"/>
+	<link rel="stylesheet" type="text/css" href="cam.css" />
+	<script type="text/javascript" src="../script/soundc.js"></script>
 	<script>
-		function setURL(url){
-    		document.getElementById('targetframeb').src = url;
+		function setURL(url) {
+			document.getElementById('targetframeb').src = url;
 		}
 	</script>
 
 </head>
+
 <body>
 	<div id="borderb">
-		<iframe src="page1.html" 
-          		name="targetframeb" 
-          		id="targetframeb" 
-          		allowTransparency="true" 
-          		scrolling="no" 
-          		allowfullscreen="true" 
-          		width="1280px" 
-          		height="720px"
-          		style="border:none;transform:scale(0.6);transform-origin: top left;"
-          		>
-          	</iframe>
-    </div>     	
+		<iframe src="page1.html" name="targetframeb" id="targetframeb" allowTransparency="true" scrolling="no" allowfullscreen="true"
+		 width="1280px" height="720px" style="border:none;transform:scale(0.6);transform-origin: top left;">
+		</iframe>
+	</div>
 	<div id="borderall">
-		
-		
+
+
 		<div id="border1">
 			<p>PORTÃO</p>
-			<iframe src="page1.html" 
-          		allowTransparency="false" 
-          		scrolling="no" 
-          		allowfullscreen="false" 
-          		width="1280px" 
-          		height="720px"
-          		style="border:none;transform:scale(0.2);transform-origin: top left;">
-          	</iframe>
-          	<button class="button buttong" onclick="setURL('page1.html');soundclick()"></button>
+			<iframe src="page1.html" allowTransparency="false" scrolling="no" allowfullscreen="false" width="1280px" height="720px" style="border:none;transform:scale(0.2);transform-origin: top left;">
+			</iframe>
+			<button class="button buttong" onclick="setURL('page1.html');soundclick()"></button>
 		</div>
-		
+
 		<div id="border2">
 			<p>ENTRADA</p>
-			<iframe src="comm.html"  
-          		allowTransparency="false" 
-          		scrolling="no" 
-          		allowfullscreen="false" 
-          		width="1280px" 
-          		height="720px"
-          		style="border:none;transform:scale(0.2);transform-origin: top left;">
-          	</iframe>
-          	<button class="button buttong" onclick="setURL('comm.html');soundclick()"></button>
+			<iframe src="comm.html" allowTransparency="false" scrolling="no" allowfullscreen="false" width="1280px" height="720px" style="border:none;transform:scale(0.2);transform-origin: top left;">
+			</iframe>
+			<button class="button buttong" onclick="setURL('comm.html');soundclick()"></button>
 		</div>
-		
+
 		<div id="border3">
 			<p>SACADA</p>
-			<iframe src="player.html" 
-          		allowTransparency="false" 
-          		scrolling="no" 
-          		allowfullscreen="false" 
-          		width="1280px" 
-          		height="720px"
-          		style="border:none;transform:scale(0.2);transform-origin: top left;">
-          	</iframe>
-          	<button class="button buttong" onclick="setURL('player.html');soundclick()"></button>
+			<iframe src="player.html" allowTransparency="false" scrolling="no" allowfullscreen="false" width="1280px" height="720px"
+			 style="border:none;transform:scale(0.2);transform-origin: top left;">
+			</iframe>
+			<button class="button buttong" onclick="setURL('player.html');soundclick()"></button>
 		</div>
-		
+
 	</div>
-<script>
-	function soundclick() {
-		var snd = new Audio("img/clickm.mp3");
-		snd.play();
-		snd.currentTime=0;
-	}
-</script>
 </body>
+
 </html>
