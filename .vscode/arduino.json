@@ -1,4 +1,5 @@
 {
     "board": "arduino:avr:uno",
-    "sketch": "Autohome_html.ino"
+    "sketch": "Arduino_code\\Autohome_html.ino",
+    "port": "COM3"
 }
