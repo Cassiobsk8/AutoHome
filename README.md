@@ -1,5 +1,5 @@
 # AutoHome
 
-Código fonte do arduino central que controla as lampadas de casa usando o app NetIO no celular/tablet
+Código fonte do ESP8266 central que controla as lampadas de casa usando uma pagina na rede.
 
-![My image](https://github.com/Cassiobsk8/AutoHome/blob/master/Inform/MEGA_bb.png)
+![My image](https://github.com/Cassiobsk8/AutoHome/blob/master/Inform/ESP.jpg)
