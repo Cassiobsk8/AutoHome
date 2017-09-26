@@ -1,5 +1,5 @@
 body {
-	background-image: url("../img/sl1.jpg");
+	background-image: url("sl1.jpg");
     background-color: #141414;
     font-family: 'Bowlby One';
     font-size: 20px;
@@ -61,7 +61,7 @@ iframe {
 }
 #borderb {
 	border: 18px solid transparent;
-	border-image: url(../img/border.png) 30 stretch;
+	border-image: url(border.png) 30 stretch;
 	vertical-align: top;
 	display: inline-block;
 	height: 20%;
@@ -72,13 +72,13 @@ iframe {
 }
 #borderall {
 	border: 8px solid transparent;
-	border-image: url(../img/border.png) 30 stretch;
+	border-image: url(border.png) 30 stretch;
 	vertical-align: right;
 	display: inline-block;
 	padding: 0px;
 	margin-top: 16px;
 	margin-left: 234px;
-	height: 176px;
+	height: 174px;
 }
 #border1 {
 	/*border: 1px solid red;*/
@@ -91,7 +91,7 @@ iframe {
 	/*border: 1px solid red;*/
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
-	border-image: url(../img/border.png) 30 stretch;
+	border-image: url(border.png) 30 stretch;
 	display: inline-block;
 	vertical-align: top;
 	width: 256px;
