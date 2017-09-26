@@ -1,5 +1,6 @@
 {
-    "board": "arduino:avr:uno",
-    "sketch": "Arduino_code\\Autohome_html.ino",
-    "port": "COM3"
+    "board": "esp8266:esp8266:nodemcuv2",
+    "sketch": "NodeMCU_code\\Autohome_html.ino",
+    "port": "COM3",
+    "configuration": "CpuFrequency=80,UploadSpeed=9600,FlashSize=4M3M"
 }

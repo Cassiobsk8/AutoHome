@@ -1,0 +1,26 @@
+<html>
+    <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+          // recebe o json
+          $.getJSON("dados",function(dados){
+            // exibe as informações recebidas por json
+            $("#nome").val(dados["esp_nome"]);
+            if(dados["led_status"]=="on"){
+              $("#led_status").prop("checked", true);
+            }else{
+              $("#led_status").prop("checked",false);
+            }
+          });
+        })
+      </script>
+    </head>
+    <body>
+      <form action="/config" method="POST">
+        <p>Nome do aparato:<input type="textbox" id="nome" name="novo_nome"></input></p>
+        <p>Marcar para ligar o led no pino D3:<input id="led_status" type="checkbox" name="led_status">Estado do LED</input></p>
+        <input type="submit">Enviar</input>
+      </form>
+    </body>
+  </html>

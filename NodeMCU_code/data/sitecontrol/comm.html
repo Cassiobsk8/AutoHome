@@ -8,7 +8,13 @@
 
 	<script src="../gauge/jquery-2.1.4.min.js"></script>
 	<script src="../gauge/jquery.AshAlom.gaugeMeter-2.0.0.min.js"></script>
-	<script type="text/javascript" src="../script/soundc.js"></script>
+	<script>
+		function soundclick() {
+			var snd = new Audio("../img/clickm.mp3");
+  			snd.play();
+  			snd.currentTime=0;
+		}
+	</script>
 	<script>
 		$(document).ready(function () {
 			$(".GaugeMeter").gaugeMeter();

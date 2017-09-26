@@ -6,7 +6,13 @@
 	<title>Page Title</title>
 	<link href='https://fonts.googleapis.com/css?family=Bowlby One' rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="cam.css" />
-	<script type="text/javascript" src="../script/soundc.js"></script>
+	<script>
+		function soundclick() {
+			var snd = new Audio("../img/clickm.mp3");
+  			snd.play();
+  			snd.currentTime=0;
+		}
+	</script>
 	<script>
 		function setURL(url) {
 			document.getElementById('targetframeb').src = url;

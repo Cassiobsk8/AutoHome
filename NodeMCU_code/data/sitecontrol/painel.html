@@ -3,7 +3,13 @@
   <title>Controle</title>
   <link href='https://fonts.googleapis.com/css?family=Bowlby One' rel='stylesheet'>
   <link rel="stylesheet" type="text/css" href="estilo.css"/>
-  <script type="text/javascript" src="../script/soundc.js"></script>
+  <script>
+		function soundclick() {
+			var snd = new Audio("../img/clickm.mp3");
+  			snd.play();
+  			snd.currentTime=0;
+		}
+	</script>
 </head>
 <body>
   <div id="container">
