@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Bowlby One' rel='stylesheet'>
+    <link href="aconfig.css" rel="stylesheet">
+    <script src="jquery-2.1.4.min.js"></script>
+    <script>
+        function esoundclick() {
+            var snd = new Audio("error.mp3");
+            snd.play();
+            snd.currentTime = 0;
+        }
+        function asoundclick() {
+            var snd = new Audio("accept.mp3");
+            snd.play();
+            snd.currentTime = 0;
+        }
+        function csoundclick() {
+            var snd = new Audio("click.mp3");
+            snd.play();
+            snd.currentTime = 0;
+        }
+    </script>
+    <script>
+        function Login() {
+            var done = 0;
+            var password = document.login.password.value;
+            password = password.toLowerCase();
+            if (password == "0868") {
+                asoundclick();
+                setTimeout(fade, 500);
+                done = 1;
+            }
+            if (done == 0) {
+                esoundclick();
+                del();
+            }
+        }
+    </script>
+    <script>
+        function fade() {
+            $('body').fadeOut();
+            setTimeout("nav('" + this.href + "')", 400);
+        }
+        function nav(href) {
+            window.location = "cam.htm";
+        };
+    </script>
+    <script type="text/javascript">
+        function input(e) {
+            var tbInput = document.getElementById("tbInput");
+            tbInput.value = tbInput.value + e.value;
+        }
+        function del() {
+            var tbInput = document.getElementById("tbInput");
+            tbInput.value = tbInput.value.substr(0, tbInput.value.length - 100);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="top">
+            <h1>ÁREA RESTRITA</h1>
+        </div>
+        <form name=login>
+            <div>
+                <div id="entrada" align=center>
+                    <div class="floating-box1"></div>
+                    <h2> CÓDIGO DE ACESSO NÍVEL 2</h2>
+                    <div class="floating-box1"></div>
+                    <input type=password name=password id="tbInput" maxlength="10" readonly size=20> </font>
+                </div>
+                <div align=center>
+                <div class="floating-box2"></div>
+                <div id="confirm" align=center>
+                    <table>
+                        <td <button class="button" onclick="Login()">ENTRAR</button>
+                        </td>
+                    </table>
+                </div>
+                <div class="floating-box2"></div>
+            </div>
+            </div>
+        </form>
+        <form id="form1" runat="server">
+            <div id="esq"></div>
+            <div id="mid">
+                <div id="VirtualKey">
+                    <button class="button buttonp" type="button" value="7" onclick="csoundclick();input(this);">7</button>
+                    <button class="button buttonp" type="button" value="8" onclick="csoundclick();input(this);">8</button>
+                    <button class="button buttonp" type="button" value="9" onclick="csoundclick();input(this);">9</button>
+                    <br />
+                    <button class="button buttonp" type="button" value="4" onclick="csoundclick();input(this);">4</button>
+                    <button class="button buttonp" type="button" value="5" onclick="csoundclick();input(this);">5</button>
+                    <button class="button buttonp" type="button" value="6" onclick="csoundclick();input(this);">6</button>
+                    <br />
+                    <button class="button buttonp" type="button" value="1" onclick="csoundclick();input(this);">1</button>
+                    <button class="button buttonp" type="button" value="2" onclick="csoundclick();input(this);">2</button>
+                    <button class="button buttonp" type="button" value="3" onclick="csoundclick();input(this);">3</button>
+                    <br />
+                    <button class="button buttonp button0" type="button" value="0" onclick="csoundclick();input(this)">0</button>
+                    <button class="button buttonp buttonpd" type="button" value="DEL" onclick="csoundclick();del();">DEL</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
