@@ -1,5 +1,14 @@
 {
-"patio": "LIGADA",
+"patio": "DESLIGADA",
 "cozinha" : "LIGADA",
-"sala": "LIGADA"
+"sala": "LIGADA",
+"escada": "OFF",
+"escritorio": "OFF",
+"quarto": "OFF",
+"patiol": "OFF",
+"cozinhal" : "ON",
+"salal": "ON",
+"escadal": "OFF",
+"escritoriol": "OFF",
+"quartol": "OFF"
 }

@@ -27,11 +27,47 @@
 				$('#ipatio').html('' + jd.patio + '');
 				$('#icozinha').html('' + jd.cozinha + '');
 				$('#isala').html('' + jd.sala + '');
+				$('#iescada').html('' + jd.escada + '');
+				$('#iescritorio').html('' + jd.escritorio + '');
+				$('#iquarto').html('' + jd.quarto + '');
+				console.log(jd);
+				if (jd.patio == "LIGADA") {
+					$('#bpatio').css('background', 'rgba(0, 255, 0, 0.2)');
+				} else {
+					$('#bpatio').css('background', 'rgba(255, 0, 0, 0.2)');
+				};
+				if (jd.cozinha == "LIGADA") {
+					$('#bcozinha').css('background', 'rgba(0, 255, 0, 0.2)');
+				} else {
+					$('#bcozinha').css('background', 'rgba(255, 0, 0, 0.2)');
+				};
+				if (jd.sala == "LIGADA") {
+					$('#bsala').css('background', 'rgba(0, 255, 0, 0.2)');
+				} else {
+					$('#bsala').css('background', 'rgba(255, 0, 0, 0.2)');
+				};
+				if (jd.escada == "LIGADA") {
+					$('#bescada').css('background', 'rgba(0, 255, 0, 0.2)');
+				} else {
+					$('#bescada').css('background', 'rgba(255, 0, 0, 0.2)');
+				};
+				if (jd.escritorio == "LIGADA") {
+					$('#bescritorio').css('background', 'rgba(0, 255, 0, 0.2)');
+				} else {
+					$('#bescritorio').css('background', 'rgba(255, 0, 0, 0.2)');
+				};
+				if (jd.quarto == "LIGADA") {
+					$('#bquarto').css('background', 'rgba(0, 255, 0, 0.2)');
+				} else {
+					$('#bquarto').css('background', 'rgba(255, 0, 0, 0.2)');
+				};
 			});
 			setTimeout(refresh, 500);
 		}
 		refresh();
 	</script>
+
+
 </head>
 
 <body>
@@ -50,40 +86,38 @@
 				<div class="floating-box"></div>
 			</div>
 			<div id="esqmid">
-				<button class="button" id="tes" onclick="soundclick(); myFunction()">PATIO</button>
+				<button class="button" onclick="soundclick()">PATIO</button>
 				<i class="right"></i>
-				<h2>
-					<div id="ipatio"></div>
+				<h2 id="bpatio">
+					<div id="ipatio">ERRO</div>
 				</h2>
 				<button class="button" onclick="soundclick()">COZINHA</button>
 				<i class="right"></i>
-				<h2>
-					<div id="icozinha"></div>
+				<h2 id="bcozinha">
+					<div id="icozinha">ERRO</div>
 				</h2>
-
-
 				<button class="button" onclick="soundclick()">SALA</button>
 				<i class="right"></i>
-				<h3>
-					<div id="isala"></div>
-				</h3>
+				<h2 id="bsala">
+					<div id="isala">ERRO</div>
+				</h2>
 				<button class="button disabled" onclick="soundclick()">ESCADA</button>
 				<i class="right"></i>
-				<h3>
-					DESLIGADA
-				</h3>
+				<h2 id="bescada">
+					<div id="iescada">ERRO</div>
+				</h2>
 			</div>
 			<div id="esqbot">
 				<button class="button disabled" onclick="soundclick()">ESCRITÓRIO</button>
 				<i class="right"></i>
-				<h2>
-					LIGADA
+				<h2 id="bescritorio">
+					<div id="iescritorio">ERRO</div>
 				</h2>
 				<button class="button disabled" onclick="soundclick()">QUARTO</button>
 				<i class="right"></i>
-				<h3>
-					DESLIGADA
-				</h3>
+				<h2 id="bquarto">
+					<div id="iquarto">ERRO</div>
+				</h2>
 			</div>
 		</div>
 		<div id="dir">
