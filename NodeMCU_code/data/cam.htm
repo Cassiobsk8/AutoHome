@@ -9,8 +9,8 @@
 	<script>
 		function soundclick() {
 			var snd = new Audio("clickm.mp3");
-  			snd.play();
-  			snd.currentTime=0;
+			snd.play();
+			snd.currentTime = 0;
 		}
 	</script>
 	<script>
@@ -26,6 +26,9 @@
 		<iframe src="page1.htm" name="targetframeb" id="targetframeb" allowTransparency="true" scrolling="no" allowfullscreen="true"
 		 width="1280px" height="720px" style="border:none;transform:scale(0.6);transform-origin: top left;">
 		</iframe>
+	</div>
+	<div align=center>
+	<div class="floating-box"></div>
 	</div>
 	<div id="borderall">
 
@@ -46,8 +49,7 @@
 
 		<div id="border3">
 			<p>SACADA</p>
-			<iframe src="player.htm" allowTransparency="false" scrolling="no" allowfullscreen="false" width="1280px" height="720px"
-			 style="border:none;transform:scale(0.2);transform-origin: top left;">
+			<iframe src="player.htm" allowTransparency="false" scrolling="no" allowfullscreen="false" width="1280px" height="720px" style="border:none;transform:scale(0.2);transform-origin: top left;">
 			</iframe>
 			<button class="button buttong" onclick="setURL('player.htm');soundclick()"></button>
 		</div>

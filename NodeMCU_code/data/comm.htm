@@ -6,30 +6,39 @@
 	<link href='https://fonts.googleapis.com/css?family=Bowlby One' rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="comm.css" />
 
-	<script src="jquery-2.1.4.min.js"></script>
+	<script src="jquery-3.2.1.min.js"></script>
 	<script src="jquery.AshAlom.gaugeMeter-2.0.0.min.js"></script>
 	<script>
 		function soundclick() {
 			var snd = new Audio("clickm.mp3");
-  			snd.play();
-  			snd.currentTime=0;
+			snd.play();
+			snd.currentTime = 0;
 		}
 	</script>
 	<script>
 		$(document).ready(function () {
 			$(".GaugeMeter").gaugeMeter();
 		});
-
 	</script>
 
-
+	<script>
+		function refresh() {
+			$.getJSON('test.json', function (jd) {
+				$('#ipatio').html('' + jd.patio + '');
+				$('#icozinha').html('' + jd.cozinha + '');
+				$('#isala').html('' + jd.sala + '');
+			});
+			setTimeout(refresh, 500);
+		}
+		refresh();
+	</script>
 </head>
 
 <body>
 	<div id="container">
 
 
-		<button class="button buttont" onclick="soundclick()">DESLIGAR TODAS AS LUZES</button>
+		<button class="button buttont" onclick="soundclick(); test()">DESLIGAR TODAS AS LUZES</button>
 
 
 		<div id="esq">
@@ -41,22 +50,22 @@
 				<div class="floating-box"></div>
 			</div>
 			<div id="esqmid">
-				<button class="button" onclick="soundclick()">PATIO</button>
+				<button class="button" id="tes" onclick="soundclick(); myFunction()">PATIO</button>
 				<i class="right"></i>
 				<h2>
-					LIGADA
+					<div id="ipatio"></div>
 				</h2>
 				<button class="button" onclick="soundclick()">COZINHA</button>
 				<i class="right"></i>
 				<h2>
-					LIGADA
+					<div id="icozinha"></div>
 				</h2>
 
 
 				<button class="button" onclick="soundclick()">SALA</button>
 				<i class="right"></i>
 				<h3>
-					DESLIGADA
+					<div id="isala"></div>
 				</h3>
 				<button class="button disabled" onclick="soundclick()">ESCADA</button>
 				<i class="right"></i>
@@ -117,25 +126,25 @@
 				<div class="floating-box4"></div>
 				<p></p>
 				<div id="gauge4">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="#04FA15"
+					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
 					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
 					</div>
 					<button class="button buttong" onclick="soundclick()"></button>
 				</div>
 				<div id="gauge4">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="#04FA15"
+					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
 					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
 					</div>
 					<button class="button buttong" onclick="soundclick()"></button>
 				</div>
 				<div id="gauge4">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="#04FA15"
+					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
 					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
 					</div>
 					<button class="button buttong" onclick="soundclick()"></button>
 				</div>
 				<div id="gauge4">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="#04FA15"
+					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
 					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
 					</div>
 					<button class="button buttong" onclick="soundclick()"></button>

@@ -9,6 +9,8 @@ body {
 input {
     font-family: 'Bowlby One';
     color: black;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 #container {
     position: inherit;
@@ -45,19 +47,37 @@ h2 {
     font-size: 16px;
     text-align: center;
 }
+i {
+    display: inline-block;
+    position: relative;
+    border: 2px solid #FFFF9A;
+    width: 134px;
+    height: 0px;
+    padding: -1px;
+    margin-top: 0px;
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-bottom: -5px;
+    border-radius: 25px;
+  }
+  .right {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+  }
 .floating-box1 {
     display: inline-block;
-    width: 460px;
+    position: inherit;
+    width: 461px;
     height: 0px;
-    margin-left: 2px;
+    margin-left: 5px;
     border: 2px solid white;
     border-radius: 25px;
 }
 .floating-box2 {
     display: inline-block;
-    width: 470px;
+    width: 468px;
     height: 0px;
-    margin-left: 2px;
+    margin-left: 5px;
     margin-bottom: 20px;
     border: 2px solid white;
     border-radius: 25px;
@@ -80,7 +100,7 @@ h2 {
     outline: none;
 }
 .buttonp {
-    border: 2px solid lightblue;
+    border: 2px solid CornflowerBlue ;
     color: white;
     width: 80px;
     height: 80px;

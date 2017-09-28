@@ -5,9 +5,18 @@ body {
     font-size: 70px;
     color: white;
     text-align:center;
-    margin-top: 13%;
+    margin-top: 10%;
 }
 h1 {
+    display: inline-block;
 	font-size: 90px;
 	margin-bottom: 0px;
+}
+.floating-box {
+    display: inline-block;
+    width: 360px;
+    height: 0px;
+    border: 2px solid white;
+	border-radius: 25px;
+	margin-bottom: 20px;
 }
