@@ -10,5 +10,8 @@
 "salal": "ON",
 "escadal": "OFF",
 "escritoriol": "OFF",
-"quartol": "OFF"
+"quartol": "OFF",
+"gtemp": "24",
+"glum": "46",
+"gpres": "1"
 }

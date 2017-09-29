@@ -8,6 +8,8 @@
 
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="jquery.AshAlom.gaugeMeter-2.0.0.min.js"></script>
+	<script src="jquery-asPieProgress.js"></script>
+
 	<script>
 		function soundclick() {
 			var snd = new Audio("clickm.mp3");
@@ -23,50 +25,106 @@
 
 	<script>
 		function refresh() {
-			$.getJSON('test.json', function (jd) {
-				$('#ipatio').html('' + jd.patio + '');
-				$('#icozinha').html('' + jd.cozinha + '');
-				$('#isala').html('' + jd.sala + '');
-				$('#iescada').html('' + jd.escada + '');
-				$('#iescritorio').html('' + jd.escritorio + '');
-				$('#iquarto').html('' + jd.quarto + '');
-				console.log(jd);
-				if (jd.patio == "LIGADA") {
-					$('#bpatio').css('background', 'rgba(0, 255, 0, 0.2)');
-				} else {
-					$('#bpatio').css('background', 'rgba(255, 0, 0, 0.2)');
-				};
-				if (jd.cozinha == "LIGADA") {
-					$('#bcozinha').css('background', 'rgba(0, 255, 0, 0.2)');
-				} else {
-					$('#bcozinha').css('background', 'rgba(255, 0, 0, 0.2)');
-				};
-				if (jd.sala == "LIGADA") {
-					$('#bsala').css('background', 'rgba(0, 255, 0, 0.2)');
-				} else {
-					$('#bsala').css('background', 'rgba(255, 0, 0, 0.2)');
-				};
-				if (jd.escada == "LIGADA") {
-					$('#bescada').css('background', 'rgba(0, 255, 0, 0.2)');
-				} else {
-					$('#bescada').css('background', 'rgba(255, 0, 0, 0.2)');
-				};
-				if (jd.escritorio == "LIGADA") {
-					$('#bescritorio').css('background', 'rgba(0, 255, 0, 0.2)');
-				} else {
-					$('#bescritorio').css('background', 'rgba(255, 0, 0, 0.2)');
-				};
-				if (jd.quarto == "LIGADA") {
-					$('#bquarto').css('background', 'rgba(0, 255, 0, 0.2)');
-				} else {
-					$('#bquarto').css('background', 'rgba(255, 0, 0, 0.2)');
-				};
-			});
+			$(document).ready(function () {
+				$.getJSON('test.json', function (data) {
+					$('#ipatio').html(data.patio);
+					$('#icozinha').html(data.cozinha);
+					$('#isala').html(data.sala);
+					$('#iescada').html(data.escada);
+					$('#iescritorio').html(data.escritorio);
+					$('#iquarto').html(data.quarto);
+
+					$('.pie_progress').asPieProgress('go', data.gtemp);
+					$('.pie_progress2').asPieProgress('go', data.glum);
+					var datagpres = (data.gpres * 100)
+					$('.pie_progress3').asPieProgress('go', datagpres);
+
+					if (data.patio == "LIGADA") {
+						$('#bpatio').css('background', 'rgba(0, 255, 0, 0.2)');
+					} else {
+						$('#bpatio').css('background', 'rgba(255, 0, 0, 0.2)');
+					};
+					if (data.cozinha == "LIGADA") {
+						$('#bcozinha').css('background', 'rgba(0, 255, 0, 0.2)');
+					} else {
+						$('#bcozinha').css('background', 'rgba(255, 0, 0, 0.2)');
+					};
+					if (data.sala == "LIGADA") {
+						$('#bsala').css('background', 'rgba(0, 255, 0, 0.2)');
+					} else {
+						$('#bsala').css('background', 'rgba(255, 0, 0, 0.2)');
+					};
+					if (data.escada == "LIGADA") {
+						$('#bescada').css('background', 'rgba(0, 255, 0, 0.2)');
+					} else {
+						$('#bescada').css('background', 'rgba(255, 0, 0, 0.2)');
+					};
+					if (data.escritorio == "LIGADA") {
+						$('#bescritorio').css('background', 'rgba(0, 255, 0, 0.2)');
+					} else {
+						$('#bescritorio').css('background', 'rgba(255, 0, 0, 0.2)');
+					};
+					if (data.quarto == "LIGADA") {
+						$('#bquarto').css('background', 'rgba(0, 255, 0, 0.2)');
+					} else {
+						$('#bquarto').css('background', 'rgba(255, 0, 0, 0.2)');
+					};
+				});
+			})
 			setTimeout(refresh, 500);
 		}
 		refresh();
 	</script>
 
+	<script type="text/javascript">
+		jQuery(function ($) {
+			$('.pie_progress').asPieProgress({
+				namespace: 'pie_progress',
+				min: 0,
+				max: 100,
+				speed: 28,
+				barcolor: 'green',
+				trackcolor: '#202020',
+				barsize: '10',
+				easing: 'linear',
+				numberCallback(n) {
+					'use strict';
+					const percentage = Math.round(this.getPercentage(n));
+					return `${percentage} °C`;
+				},
+			});
+			$('.pie_progress2').asPieProgress({
+				namespace: 'pie_progress2',
+				min: 0,
+				max: 100,
+				speed: 28,
+				barcolor: 'green',
+				trackcolor: '#202020',
+				barsize: '10',
+				easing: 'linear',
+				numberCallback(n) {
+					'use strict';
+					const percentage = Math.round(this.getPercentage(n));
+					return `${percentage} %`;
+				},
+			});
+			$('.pie_progress3').asPieProgress({
+				namespace: 'pie_progress3',
+				min: 0,
+				max: 100,
+				speed: 10,
+				barcolor: 'green',
+				trackcolor: '#202020',
+				barsize: '10',
+				easing: 'ease',
+				numberCallback(n) {
+					'use strict';
+					const percentage = Math.round(this.getPercentage(n));
+					return `P`;
+				},
+			});
+		});
+	</script>
 
 </head>
 
@@ -74,7 +132,7 @@
 	<div id="container">
 
 
-		<button class="button buttont" onclick="soundclick(); test()">DESLIGAR TODAS AS LUZES</button>
+		<button class="button buttont" onclick="soundclick(); testt()">DESLIGAR TODAS AS LUZES</button>
 
 
 		<div id="esq">
@@ -137,18 +195,18 @@
 				<div class="floating-box2"></div>
 				<p></p>
 				<div id="gauge1">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-percent="25" data-stripe="12" data-append="°C" data-animate_gauge_colors="1"
-					 data-theme="Green-Red" data-label="TEMPERATURA" data-label_color="white" data-size="200" data-width="10">
+					<div class="pie_progress" role="progressbar">
+						<span class="pie_progress__number">0°C</span>
 					</div>
 				</div>
 				<div id="gauge2">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-percent="100" data-stripe="12" data-append="%" data-color="#04FA15" data-label="LUMINOSIDADE"
-					 data-label_color="white" data-size="200" data-width="10">
+					<div class="pie_progress2" role="progressbar">
+						<span class="pie_progress__number">0°C</span>
 					</div>
 				</div>
 				<div id="gauge3">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="#04FA15"
-					 data-text="P" data-label="PRESENÇA" data-label_color="white" data-size="200" data-width="0">
+					<div class="pie_progress3" role="progressbar">
+						<span class="pie_progress__number">P</span>
 					</div>
 				</div>
 			</div>
@@ -160,25 +218,25 @@
 				<div class="floating-box4"></div>
 				<p></p>
 				<div id="gauge4">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
+					<div class="GaugeMeter" id="GaugeMeter_4" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
 					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
 					</div>
 					<button class="button buttong" onclick="soundclick()"></button>
 				</div>
 				<div id="gauge4">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
+					<div class="GaugeMeter" id="GaugeMeter_5" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
 					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
 					</div>
 					<button class="button buttong" onclick="soundclick()"></button>
 				</div>
 				<div id="gauge4">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
+					<div class="GaugeMeter" id="GaugeMeter_6" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
 					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
 					</div>
 					<button class="button buttong" onclick="soundclick()"></button>
 				</div>
 				<div id="gauge4">
-					<div class="GaugeMeter" id="GaugeMeter_1" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
+					<div class="GaugeMeter" id="GaugeMeter_7" data-used="1" data-total="1" data-stripe="0" data-back="black" data-color="CornflowerBlue "
 					 data-text="T" data-label="TESTE" data-label_color="white" data-size="200" data-width="0">
 					</div>
 					<button class="button buttong" onclick="soundclick()"></button>
