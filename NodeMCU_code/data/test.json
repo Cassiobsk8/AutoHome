@@ -1,7 +1,7 @@
 {
-"patio": "DESLIGADA",
+"patio": "LIGADA",
 "cozinha" : "LIGADA",
-"sala": "LIGADA",
+"sala": "DESLIGADA",
 "escada": "OFF",
 "escritorio": "OFF",
 "quarto": "OFF",
@@ -11,7 +11,7 @@
 "escadal": "OFF",
 "escritoriol": "OFF",
 "quartol": "OFF",
-"gtemp": "24",
+"gtemp": "22",
 "glum": "46",
 "gpres": "1"
 }

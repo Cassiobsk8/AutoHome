@@ -3,6 +3,8 @@
 <html>
 
 <head>
+	<meta http-equiv="Cache-control" content="no-cache">
+	<META HTTP-EQUIV="Expires" CONTENT="-1">
 	<link href='https://fonts.googleapis.com/css?family=Bowlby One' rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="comm.css" />
 
@@ -17,11 +19,11 @@
 			snd.currentTime = 0;
 		}
 	</script>
-	<script>
+	<!--<script>
 		$(document).ready(function () {
 			$(".GaugeMeter").gaugeMeter();
 		});
-	</script>
+	</script>-->
 
 	<script>
 		function refresh() {
@@ -33,7 +35,6 @@
 					$('#iescada').html(data.escada);
 					$('#iescritorio').html(data.escritorio);
 					$('#iquarto').html(data.quarto);
-
 					$('.pie_progress').asPieProgress('go', data.gtemp);
 					$('.pie_progress2').asPieProgress('go', data.glum);
 					var datagpres = (data.gpres * 100)
@@ -132,7 +133,7 @@
 	<div id="container">
 
 
-		<button class="button buttont" onclick="soundclick(); testt()">DESLIGAR TODAS AS LUZES</button>
+		<button class="button buttont" id="pat" onclick="soundclick(); sendpatio()">DESLIGAR TODAS AS LUZES</button>
 
 
 		<div id="esq">
@@ -201,7 +202,7 @@
 				</div>
 				<div id="gauge2">
 					<div class="pie_progress2" role="progressbar">
-						<span class="pie_progress__number">0°C</span>
+						<span class="pie_progress__number">0%</span>
 					</div>
 				</div>
 				<div id="gauge3">
