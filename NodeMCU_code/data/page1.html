@@ -1,7 +1,44 @@
+<!doctype html>
+
+<html>
+
 <head>
-	<meta charset="UTF-8">
-	<link href='https://fonts.googleapis.com/css?family=Bowlby One' rel='stylesheet'>
-	<link rel="stylesheet" type="text/css" href="page1.css" />
+	<style type="text/css">
+		@font-face {
+			font-family: 'Bowlby One';
+			font-style: normal;
+			font-weight: 400;
+			src: local('Bowlby One Regular'), local('BowlbyOne-Regular'),
+			url(bowlby-one.woff2) format('woff2'),
+			url('bowlby-one.ttf') format('truetype');
+			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+		}
+
+		body {
+			background-image: url("sl1.jpg");
+			background-color: #141414;
+			font-family: 'Bowlby One';
+			font-size: 70px;
+			color: white;
+			text-align: center;
+			margin-top: 10%;
+		}
+
+		h1 {
+			display: inline-block;
+			font-size: 90px;
+			margin-bottom: 0px;
+		}
+
+		.floating-box {
+			display: inline-block;
+			width: 360px;
+			height: 0px;
+			border: 2px solid white;
+			border-radius: 25px;
+			margin-bottom: 20px;
+		}
+	</style>
 	<script>
 		function startTime() {
 			var today = new Date();
@@ -52,3 +89,5 @@
 		</script>
 	</div>
 </body>
+
+</html>

@@ -1,47 +1,137 @@
 <head>
   <meta charset="utf-8">
   <title>Controle</title>
-  <link href='https://fonts.googleapis.com/css?family=Bowlby One' rel='stylesheet'>
-  <link rel="stylesheet" type="text/css" href="estilo.css"/>
+  <style type="text/css">
+    @font-face {
+      font-family: 'Bowlby One';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Bowlby One Regular'), local('BowlbyOne-Regular'),
+      url(bowlby-one.woff2) format('woff2'),
+      url('bowlby-one.ttf') format('truetype');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+    }
+
+    #container {
+      display: flex;
+      position: inherit;
+    }
+
+    #menu {
+      vertical-align: top;
+      display: inline-block;
+      width: 250px;
+      height: 555px;
+      margin-top: 50px;
+      border: 2px solid white;
+
+    }
+
+    #browser {
+      border: 2px solid white;
+      vertical-align: top;
+      display: inline-block;
+      width: 986px;
+      height: 555px;
+      margin-top: 50px;
+      margin-left: 10px;
+    }
+
+    i {
+      border: solid lightblue;
+      border-width: 0 6px 6px 0;
+      display: inline-block;
+      padding: 6px;
+    }
+
+    .right {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+    }
+
+    .floating-box {
+      display: inline-block;
+      width: 150px;
+      height: 0px;
+      margin-left: 4px;
+      margin-right: 40px;
+      border: 2px solid white;
+      border-radius: 25px;
+    }
+
+    a:link,
+    a:visited {
+      color: lightblue;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    a:hover,
+    a:active {
+      color: white;
+      text-decoration: none;
+    }
+
+    p {
+      display: block;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      letter-spacing: 2px;
+      font-size: 25px;
+    }
+
+    body {
+      background-color: #141414;
+      font-family: 'Bowlby One';
+    }
+  </style>
   <script>
-		function soundclick() {
-			var snd = new Audio("clickm.mp3");
-  			snd.play();
-  			snd.currentTime=0;
-		}
-	</script>
+    function soundclick() {
+      var snd = new Audio("clickm.mp3");
+      snd.play();
+      snd.currentTime = 0;
+    }
+  </script>
 </head>
+
 <body>
   <div id="container">
-      <div id="menu">
+    <div id="menu">
 
-        <p><a href="page1.html" target="targetframe" onclick="soundclick()">PAINEL <i class="right"></i></a></p>
-        <div class="floating-box"></div>
-        <p><a href="comm.html" target="targetframe" onclick="soundclick()">COMANDOS</a></p>
-        <div class="floating-box"></div>
-        <p><a href="status.html" target="targetframe" onclick="soundclick()">STATUS</a></p>
-        <div class="floating-box"></div>
-        <p><a href="player.html" target="targetframe" onclick="soundclick()">MULTIMÍDIA</a></p>
-        <div class="floating-box"></div>
-        <p><a href="cam.html" target="targetframe" onclick="soundclick()">CAMERAS</a></p>
-        <div class="floating-box"></div>
-        <p><a href="aconfig.html" target="targetframe" onclick="soundclick()">CONFIG.</a></p>
-        <div class="floating-box"></div>
+      <p>
+        <a href="page1.html" target="targetframe" onclick="soundclick()">PAINEL
+          <i class="right"></i>
+        </a>
+      </p>
+      <div class="floating-box"></div>
+      <p>
+        <a href="comm.html" target="targetframe" onclick="soundclick()">COMANDOS</a>
+      </p>
+      <div class="floating-box"></div>
+      <p>
+        <a href="status.html" target="targetframe" onclick="soundclick()">STATUS</a>
+      </p>
+      <div class="floating-box"></div>
+      <p>
+        <a href="player.html" target="targetframe" onclick="soundclick()">MULTIMÍDIA</a>
+      </p>
+      <div class="floating-box"></div>
+      <p>
+        <a href="cam.html" target="targetframe" onclick="soundclick()">CAMERAS</a>
+      </p>
+      <div class="floating-box"></div>
+      <p>
+        <a href="aconfig.html" target="targetframe" onclick="soundclick()">CONFIG.</a>
+      </p>
+      <div class="floating-box"></div>
 
-      </div>
-      <div id="browser">
-          <iframe src="page1.html" 
-          name="targetframe" 
-          id="targetframe" 
-          allowTransparency="true" 
-          scrolling="no" 
-          allowfullscreen="true"  
-          width="1280" 
-          height="720"
-          style="border:none;transform:scale(0.77);transform-origin: top left;">
-          </iframe>
-      </div>
+    </div>
+    <div id="browser">
+      <iframe src="page1.html" name="targetframe" id="targetframe" allowTransparency="true" scrolling="no" allowfullscreen="true"
+        width="1280" height="720" style="border:none;transform:scale(0.77);transform-origin: top left;">
+      </iframe>
+    </div>
   </div>
-  
+
   </script>
 </body>

@@ -5,14 +5,7 @@ import ujson
 led = machine.Pin(13, machine.Pin.OUT)
 spatio = machine.Pin(12, machine.Pin.IN)
 
-#def a():
-#    se = 'foi'
-#    return se
-
-#def b ():
-#    se = a()
-#    print(se)
-
+print('loop?')
 
 def spa():
     if spatio.value() == 1:
@@ -30,8 +23,8 @@ def ler():
     return dados_json
 
 def pasta():
-    os.listdir()
-    return os.listdir()
+    uos.listdir()
+    return uos.listdir()
 
 def esc():
     dados_json = {'patio': 'DESLIGADA', 'cozinha': 'DESLIGADA', 'sala': 'DESLIGADA', 'escada': 'OFF', 'escritorio': 'OFF', 'quarto': 'OFF', 'patiol': 'OFF', 'cozinhal': 'OFF', 'salal': 'OFF', 'escadal': 'OFF', 'escritoriol': 'OFF', 'quartol': 'OFF', 'gtemp': '0', 'glum': '0', 'gpres': '0'}
